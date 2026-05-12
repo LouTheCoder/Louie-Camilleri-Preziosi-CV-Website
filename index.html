@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Louie - Film & Costume</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Karla:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --white: #FFFFFF;
+  --green-deep: #1A3320;
+  --green-mid: #2D5C3F;
+  --green-light: #4A8C60;
+  --green-pale: #D6E9DC;
+  --green-wash: #EBF4EE;
+  --ink: #111A14;
+  --muted: #6B7D70;
+  --border: rgba(26,51,32,0.12);
+  --serif: 'Playfair Display', Georgia, serif;
+  --sans: 'Karla', system-ui, sans-serif;
+}
+html { scroll-behavior: smooth; }
+body {
+  background: var(--white);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-weight: 300;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1.5rem 4rem;
+  background: rgba(255,255,255,0.94);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border);
+}
+.nav-logo {
+  font-family: var(--serif); font-size: 1.15rem; font-weight: 400;
+  letter-spacing: 0.03em; color: var(--green-deep); text-decoration: none;
+}
+.nav-links { display: flex; gap: 2.5rem; list-style: none; }
+.nav-links a {
+  font-size: 0.78rem; letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--muted); text-decoration: none; transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--green-deep); }
+
+/* Hero */
+.hero {
+  min-height: 100vh; background: var(--green-deep);
+  display: grid; grid-template-columns: 1fr 1fr;
+  position: relative; overflow: hidden;
+}
+.hero::before {
+  content: ''; position: absolute; inset: 0;
+  background-image:
+    repeating-linear-gradient(45deg, transparent, transparent 2px, rgba(255,255,255,0.018) 2px, rgba(255,255,255,0.018) 4px),
+    repeating-linear-gradient(-45deg, transparent, transparent 2px, rgba(255,255,255,0.012) 2px, rgba(255,255,255,0.012) 4px);
+  pointer-events: none;
+}
+.hero-left {
+  display: flex; flex-direction: column; justify-content: flex-end;
+  padding: 8rem 3rem 5rem 4rem;
+  border-right: 1px solid rgba(255,255,255,0.08);
+}
+.hero-eyebrow {
+  font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--green-light); margin-bottom: 1.5rem;
+  display: flex; align-items: center; gap: 0.75rem;
+}
+.hero-eyebrow::before {
+  content: ''; display: inline-block;
+  width: 28px; height: 1px; background: var(--green-light);
+}
+.hero-left h1 {
+  font-family: var(--serif);
+  font-size: clamp(3.5rem, 6vw, 6.5rem);
+  font-weight: 400; line-height: 1.0;
+  letter-spacing: -0.01em; color: var(--white);
+}
+.hero-left h1 em { font-style: italic; color: var(--green-pale); }
+.hero-right {
+  display: flex; flex-direction: column; justify-content: flex-end;
+  padding: 8rem 4rem 5rem 3rem;
+}
+.hero-contacts { display: flex; flex-direction: column; gap: 0; margin-bottom: 3rem; }
+.hero-contact-item {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 0.9rem 0; border-bottom: 1px solid rgba(255,255,255,0.1);
+  text-decoration: none; transition: padding-left 0.2s;
+}
+.hero-contact-item:first-child { border-top: 1px solid rgba(255,255,255,0.1); }
+.hero-contact-item:hover { padding-left: 0.4rem; }
+.hero-contact-label { font-size: 0.7rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--green-light); }
+.hero-contact-value { font-size: 0.9rem; color: rgba(255,255,255,0.75); }
+.hero-cta {
+  display: inline-flex; align-items: center; gap: 0.75rem;
+  padding: 0.9rem 2rem; background: var(--white); color: var(--green-deep);
+  font-family: var(--sans); font-size: 0.78rem; font-weight: 500;
+  letter-spacing: 0.12em; text-transform: uppercase; text-decoration: none;
+  transition: background 0.2s, transform 0.2s; align-self: flex-start;
+}
+.hero-cta:hover { background: var(--green-pale); transform: translateX(4px); }
+
+/* Sections */
+section { padding: 6rem 4rem; border-bottom: 1px solid var(--border); }
+.section-header {
+  display: flex; justify-content: space-between; align-items: baseline;
+  margin-bottom: 4rem; padding-bottom: 1.5rem; border-bottom: 1px solid var(--border);
+}
+.section-label { font-size: 0.7rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--green-light); }
+.section-title {
+  font-family: var(--serif); font-size: clamp(2rem, 4vw, 3.5rem);
+  font-weight: 400; letter-spacing: -0.01em; line-height: 1.1; color: var(--green-deep);
+}
+
+/* About */
+.about-grid { display: grid; grid-template-columns: 5fr 7fr; gap: 5rem; align-items: start; }
+.about-pull { font-family: var(--serif); font-size: 1.45rem; font-weight: 400; line-height: 1.55; color: var(--green-deep); }
+.about-pull em { font-style: italic; color: var(--green-light); }
+.about-body p { font-size: 0.97rem; color: var(--muted); margin-bottom: 1.2rem; line-height: 1.9; }
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  margin-top: 2.5rem;
+  border-left: 1px solid var(--border);
+  border-top: 1px solid var(--border);
+}
+.skill-item {
+  background: var(--white);
+  padding: 0.7rem 1rem;
+  font-size: 0.8rem;
+  letter-spacing: 0.05em;
+  color: var(--muted);
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  border-right: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  transition: background 0.2s, color 0.2s;
+}
+.skill-item:hover { background: var(--green-wash); color: var(--green-deep); }
+.skill-item::before {
+  content: '';
+  width: 5px; height: 5px;
+  border-radius: 50%;
+  background: var(--green-light);
+  flex-shrink: 0;
+}
+
+/* Credits */
+.credits-list { display: flex; flex-direction: column; }
+.credit-item {
+  display: grid; grid-template-columns: 180px 1fr auto;
+  gap: 2.5rem; padding: 2rem 0; border-bottom: 1px solid var(--border); align-items: start;
+}
+.credit-item:first-child { padding-top: 0; }
+.credit-item:last-child { border-bottom: none; }
+.credit-year { font-family: var(--serif); font-size: 1rem; color: var(--green-light); font-style: italic; margin-bottom: 0.2rem; }
+.credit-dept { font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); }
+.credit-role { font-size: 1rem; font-weight: 500; color: var(--green-deep); margin-bottom: 0.2rem; }
+.credit-production { font-family: var(--serif); font-size: 1.05rem; font-style: italic; color: var(--ink); margin-bottom: 0.5rem; }
+.credit-desc { font-size: 0.88rem; color: var(--muted); line-height: 1.8; max-width: 56ch; }
+.credit-type {
+  font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase;
+  padding: 0.3rem 0.75rem; border: 1px solid var(--border); color: var(--muted);
+  white-space: nowrap; align-self: start;
+}
+
+/* Education */
+.edu-list { display: flex; flex-direction: column; }
+.edu-item { border-bottom: 1px solid var(--border); }
+.edu-item:last-child { border-bottom: none; }
+.edu-toggle {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 2rem 0; cursor: pointer;
+  transition: color 0.2s;
+}
+.edu-toggle:hover .edu-qual { color: var(--green-light); }
+.edu-arrow {
+  font-size: 1rem; color: var(--green-light);
+  transition: transform 0.3s ease;
+  display: inline-block;
+}
+.edu-item.open .edu-arrow { transform: rotate(180deg); }
+.edu-qual { font-family: var(--serif); font-size: 1.05rem; font-weight: 400; color: var(--green-deep); }
+.edu-institution { font-size: 0.88rem; color: var(--muted); margin-top: 0.2rem; }
+.edu-year { font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--green-light); }
+.edu-subjects {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease, margin 0.4s ease;
+  margin-bottom: 0;
+}
+.edu-item.open .edu-subjects { max-height: 600px; margin-bottom: 2rem; }
+.edu-subject-group { margin-bottom: 1.5rem; }
+.edu-subject-group:last-child { margin-bottom: 0; }
+.edu-subject-group-label {
+  font-size: 0.7rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--white);
+  background: var(--green-mid);
+  padding: 0.6rem 1rem;
+}
+.edu-subject-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  border-left: 1px solid var(--border);
+  border-top: 1px solid var(--border);
+}
+.edu-subject {
+  background: var(--green-wash);
+  padding: 0.6rem 1rem;
+  font-size: 0.82rem;
+  color: var(--muted);
+  border-right: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+/* Contact */
+.contact-section { background: var(--green-deep); border-bottom: none; padding: 7rem 4rem; }
+.contact-section .section-label { color: var(--green-light); }
+.contact-section .section-title { color: var(--white); }
+.contact-section .section-header { border-bottom-color: rgba(255,255,255,0.1); }
+.contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: start; }
+.contact-sub { font-size: 1rem; color: rgba(255,255,255,0.5); line-height: 1.9; max-width: 36ch; margin-top: 1.5rem; }
+.contact-links { display: flex; flex-direction: column; margin-top: 1rem; }
+.contact-link {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1.25rem 0; border-bottom: 1px solid rgba(255,255,255,0.1);
+  text-decoration: none; color: rgba(255,255,255,0.8); font-size: 0.95rem;
+  transition: color 0.2s, padding-left 0.2s;
+}
+.contact-link:first-child { border-top: 1px solid rgba(255,255,255,0.1); }
+.contact-link:hover { color: var(--white); padding-left: 0.5rem; }
+.contact-link span { font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--green-light); }
+
+/* Footer */
+footer {
+  padding: 2rem 4rem; display: flex; justify-content: space-between; align-items: center;
+  background: var(--green-deep); border-top: 1px solid rgba(255,255,255,0.06);
+}
+.footer-copy { font-size: 0.78rem; color: rgba(255,255,255,0.25); }
+
+/* Animations */
+.fade-up { opacity: 0; transform: translateY(20px); transition: opacity 0.65s ease, transform 0.65s ease; }
+.fade-up.visible { opacity: 1; transform: none; }
+
+/* Responsive */
+@media (max-width: 960px) {
+  nav { padding: 1.25rem 2rem; }
+  .nav-links { gap: 1.5rem; }
+  section { padding: 4rem 2rem; }
+  .hero { grid-template-columns: 1fr; min-height: auto; }
+  .hero-left { padding: 7rem 2rem 3rem; border-right: none; border-bottom: 1px solid rgba(255,255,255,0.08); }
+  .hero-right { padding: 3rem 2rem 5rem; }
+  .about-grid { grid-template-columns: 1fr; gap: 3rem; }
+  .credit-item { grid-template-columns: 1fr; gap: 0.5rem; }
+  .credit-type { display: none; }
+  .edu-item { grid-template-columns: 1fr; gap: 0.25rem; }
+  .edu-year { text-align: left; }
+  .work-grid { grid-template-columns: 1fr; }
+  .contact-grid { grid-template-columns: 1fr; gap: 3rem; }
+  .contact-section { padding: 4rem 2rem; }
+  footer { padding: 1.5rem 2rem; flex-direction: column; gap: 0.5rem; }
+}
+@media (max-width: 600px) {
+  .nav-links { display: none; }
+  .section-header { flex-direction: column; gap: 0.5rem; }
+  .skills-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="#">Louie Camilleri Preziosi</a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#credits">Credits</a></li>
+    <li><a href="#education">Education</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- Hero -->
+<div class="hero">
+  <div class="hero-left">
+    <p class="hero-eyebrow">Film &amp; Costume</p>
+    <h1>Louie<br>Camilleri Preziosi<br><em>Film</em>&nbsp;Trainee</h1>
+  </div>
+  <div class="hero-right">
+    <div class="hero-contacts">
+      <a href="tel:+35699510298" class="hero-contact-item">
+        <span class="hero-contact-label">Phone</span>
+        <span class="hero-contact-value">+356 9951 0298</span>
+      </a>
+      <a href="mailto:film@louie.mt" class="hero-contact-item">
+        <span class="hero-contact-label">Email</span>
+        <span class="hero-contact-value">film@louie.mt</span>
+      </a>
+      <a href="Louie_Camilleri_Preziosi_CV.pdf" download class="hero-contact-item">
+        <span class="hero-contact-label">CV</span>
+        <span class="hero-contact-value">Download PDF</span>
+      </a>
+    </div>
+    <a href="#credits" class="hero-cta">View Credits &rarr;</a>
+  </div>
+</div>
+
+<!-- About -->
+<section id="about">
+  <div class="section-header fade-up">
+    <span class="section-label">01 / About</span>
+    <h2 class="section-title">Background</h2>
+  </div>
+  <div class="about-grid">
+    <p class="about-pull fade-up">A <em>hardworking team player</em> with a vast range of skills who is willing to try anything.</p>
+    <div class="about-body fade-up">
+      <p>I'm a young film enthusiast keen to make my way in the Maltese film industry. While my primary focus is the costume department, I'm a hardworking team player with a vast range of skills, so I'm willing to try anything.</p>
+      <p>Most recently I worked as a Costume Trainee on National Geographic's Surviving Pompeii, where I sewed and maintained costumes, made jewellery, assisted with fittings and alterations, and supported the production wrap.</p>
+      <p>I also have experience outside the costume department, having worked as a Sound Trainee on Breathe Deep for Cornerstone Films. In the future I'm planning on doing a Bachelor of Arts in <em>Costume Design and Construction</em> in Edinburgh.</p>
+      <div class="skills-grid">
+        <span class="skill-item">Machine &amp; Hand Sewing</span>
+        <span class="skill-item">Jewellery Making</span>
+        <span class="skill-item">Fittings</span>
+        <span class="skill-item">Alterations</span>
+        <span class="skill-item">Costume Checks</span>
+        <span class="skill-item">Steaming &amp; Pressing</span>
+        <span class="skill-item">Washing &amp; Drying</span>
+        <span class="skill-item">Script Breakdown</span>
+        <span class="skill-item">Office Suites</span>
+        <span class="skill-item">Programming</span>
+        <span class="skill-item">Graphic Design</span>
+        <span class="skill-item">Social Media</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Credits -->
+<section id="credits">
+  <div class="section-header fade-up">
+    <span class="section-label">02 / Credits</span>
+    <h2 class="section-title">Production experience</h2>
+  </div>
+  <div class="credits-list">
+    <div class="credit-item fade-up">
+      <div class="credit-meta">
+        <p class="credit-year">2026</p>
+        <p class="credit-dept">Costume Dpt.</p>
+      </div>
+      <div class="credit-main">
+        <p class="credit-role">Giovanni Curmi Higher Secondary School</p>
+        <p class="credit-production">Assistant Costume Designer - I Have a Dream</p>
+        <p class="credit-desc">Conducted script breakdown, took cast measurements, and altered costumes. Advised student actors on their costume choices throughout the production.</p>
+      </div>
+      <span class="credit-type">Amateur Theatre</span>
+    </div>
+    <div class="credit-item fade-up">
+      <div class="credit-meta">
+        <p class="credit-year">2025</p>
+        <p class="credit-dept">Sound Dpt.</p>
+      </div>
+      <div class="credit-main">
+        <p class="credit-role">Cornerstone Films (via Camelot Media Ltd.)</p>
+        <p class="credit-production">Sound Trainee - Breathe Deep</p>
+        <p class="credit-desc">Operated a secondary boom mic and prepared lavalier microphones for actors, while managing batteries and equipment across locations. Assisted with a night shoot lock-off and production wrap.</p>
+      </div>
+      <span class="credit-type">Feature Film</span>
+    </div>
+    <div class="credit-item fade-up">
+      <div class="credit-meta">
+        <p class="credit-year">2025</p>
+        <p class="credit-dept">Costume Dpt.</p>
+      </div>
+      <div class="credit-main">
+        <p class="credit-role">National Geographic (via Foran LTD.)</p>
+        <p class="credit-production">Costume Trainee - Surviving Pompeii</p>
+        <p class="credit-desc">Sewed costumes by hand and with a sewing machine, made jewellery, and assisted with crowd fittings, alterations, and dressing. Assisted with wrap including cleaning and returning costumes to suppliers.</p>
+      </div>
+      <span class="credit-type">TV Mini Series</span>
+    </div>
+    <div class="credit-item fade-up">
+      <div class="credit-meta">
+        <p class="credit-year">2025</p>
+        <p class="credit-dept">Acting</p>
+      </div>
+      <div class="credit-main">
+        <p class="credit-role">Colourstorm Pictures</p>
+        <p class="credit-production">Priest - Pains Embrace</p>
+        <p class="credit-desc">Returned as the same character in a feature-length spinoff production, this time in a minor cameo role.</p>
+      </div>
+      <span class="credit-type">Feature Film</span>
+    </div>
+    <div class="credit-item fade-up">
+      <div class="credit-meta">
+        <p class="credit-year">2024</p>
+        <p class="credit-dept">Acting</p>
+      </div>
+      <div class="credit-main">
+        <p class="credit-role">Colourstorm Pictures</p>
+        <p class="credit-production">Priest - Rotten Blade</p>
+        <p class="credit-desc">Played the lead role as a priest in a short horror film that was written for a local film festival, as well as designing and creating my own costume.</p>
+      </div>
+      <span class="credit-type">Short Film</span>
+    </div>
+  </div>
+</section>
+
+<!-- Education -->
+<section id="education">
+  <div class="section-header fade-up">
+    <span class="section-label">03 / Education</span>
+    <h2 class="section-title">Training &amp; study</h2>
+  </div>
+  <div class="edu-list">
+    <div class="edu-item fade-up">
+      <div class="edu-toggle" onclick="toggleEdu(this)">
+        <div>
+          <p class="edu-qual">Giovanni Curmi Higher Secondary School</p>
+          <p class="edu-institution">Post Secondary School</p>
+        </div>
+        <div style="display:flex; align-items:center; gap:2rem;">
+          <p class="edu-year">2023 — 2026</p>
+          <span class="edu-arrow">↓</span>
+        </div>
+      </div>
+      <div class="edu-subjects">
+        <div class="edu-subject-group">
+          <p class="edu-subject-group-label">Advanced Matriculation</p>
+          <div class="edu-subject-grid">
+            <span class="edu-subject">Computing</span>
+            <span class="edu-subject">Sociology</span>
+          </div>
+        </div>
+        <div class="edu-subject-group">
+          <p class="edu-subject-group-label">Intermediate Matriculation</p>
+          <div class="edu-subject-grid">
+            <span class="edu-subject">English</span>
+            <span class="edu-subject">Marketing</span>
+            <span class="edu-subject">Pure Mathematics</span>
+            <span class="edu-subject">Systems of Knowledge</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="edu-item fade-up">
+      <div class="edu-toggle" onclick="toggleEdu(this)">
+        <div>
+          <p class="edu-qual">San Anton School &amp; San Andrea School</p>
+          <p class="edu-institution">Secondary School</p>
+        </div>
+        <div style="display:flex; align-items:center; gap:2rem;">
+          <p class="edu-year">2020 — 2023</p>
+          <span class="edu-arrow">↓</span>
+        </div>
+      </div>
+      <div class="edu-subjects">
+        <div class="edu-subject-group">
+          <p class="edu-subject-group-label">Intermediate Matriculation</p>
+          <div class="edu-subject-grid">
+            <span class="edu-subject">Biology</span>
+            <span class="edu-subject">Computing</span>
+            <span class="edu-subject">English Language</span>
+            <span class="edu-subject">English Literature</span>
+            <span class="edu-subject">Environmental Studies</span>
+            <span class="edu-subject">Maltese</span>
+            <span class="edu-subject">Mathematics</span>
+            <span class="edu-subject">Physics</span>
+            <span class="edu-subject">Religious Knowledge</span>
+            <span class="edu-subject">Spanish</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+</section>
+
+<!-- Contact -->
+<section id="contact" class="contact-section">
+  <div class="section-header fade-up">
+    <span class="section-label">04 / Contact</span>
+    <h2 class="section-title">Work with me</h2>
+  </div>
+  <div class="contact-grid">
+    <div class="fade-up">
+      <p class="contact-sub">I'm based in Malta and open to trainee and assistant positions across all departments. Feel free to get in touch.</p>
+    </div>
+    <div class="fade-up">
+      <div class="contact-links">
+        <a class="contact-link" href="tel:+35699510298">+356 9951 0298<span>Phone ↗</span></a>
+        <a class="contact-link" href="mailto:film@louie.mt">film@louie.mt<span>Email ↗</span></a>
+        <a class="contact-link" href="https://www.linkedin.com/in/louiecamilleripreziosi/" target="_blank" rel="noopener">LinkedIn<span>Profile ↗</span></a>
+        <a class="contact-link" href="https://www.imdb.com/name/nm17773073/" target="_blank" rel="noopener">IMDb<span>Credits ↗</span></a>
+        <a class="contact-link" href="https://www.themoviedb.org/person/5912438-louie-camilleri-preziosi" target="_blank" rel="noopener">TMDb<span>Credits ↗</span></a>
+        <a class="contact-link" href="Louie_Camilleri_Preziosi_CV.pdf" download>Download CV<span>PDF ↗</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span class="footer-copy">&copy; 2026 Louie Camilleri Preziosi</span>
+  <span class="footer-copy">Film &amp; Costume &middot; Malta</span>
+</footer>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('visible'), i * 90);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+  function toggleEdu(el) {
+    const item = el.closest('.edu-item');
+    item.classList.toggle('open');
+  } 
+</script>
+</body>
+</html>
