@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Volunteering with MGRM — Louie</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Karla:wght@300;400;500&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="mgrm.css">
+</head>
+
+<body>
+
+    <nav>
+        <a class="nav-logo" href="index.html">Louie Camilleri Preziosi</a>
+        <ul class="nav-links">
+            <li><a href="index.html#about">About</a></li>
+            <li><a href="index.html#credits">Credits</a></li>
+            <li><a href="index.html#education">Education</a></li>
+            <li class="nav-dropdown">
+                <a href="index.html#work">Work</a>
+                <div class="nav-dropdown-menu">
+                    <a href="mgrm.html">Volunteering with MGRM</a>
+                </div>
+            </li>
+            <li><a href="index.html#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <div class="page-header">
+        <div class="page-header-inner">
+            <p class="page-eyebrow">Voluntary / Community</p>
+            <h1 class="page-title">Volunteering with <em>MGRM</em></h1>
+            <p class="page-subtitle">Contributing to events, campaigns, and community initiatives with the Malta LGBTIQ
+                Rights Movement.</p>
+        </div>
+    </div>
+
+    <div class="page-body">
+        <p class="intro-text fade-up">
+            I've been involved with <em>MGRM</em> across a range of events and initiatives since 2023 - from thrift
+            sales and pride events to community discussions and outreach. Below is a record of what I've contributed to.
+        </p>
+        <div class="events-list">
+            <div class="event-item fade-up">
+                <div class="event-meta">
+                    <p class="event-date">26 Sep 2025</p>
+                    <p class="event-tag">Outreach</p>
+                </div>
+                <div class="event-content">
+                    <p class="event-title">GCHSS Freshers' Days</p>
+                    <p class="event-desc">Volunteered at MGRM's stand at Giovanni Curmi Higher Secondary School's
+                        Freshers' Days. I set up the booth, distributed free merchandise and flyers, and spent the day
+                        speaking to new students about MGRM's work and how to get involved.</p>
+                </div>
+            </div>
+            <div class="event-item fade-up">
+                <div class="event-meta">
+                    <p class="event-date">12–13 Sep 2025</p>
+                    <p class="event-tag">Pride</p>
+                </div>
+                <div class="event-content">
+                    <p class="event-title">Pride Village &amp; Pride March</p>
+                    <p class="event-desc">Two days at Pjazza Tritoni, Valletta. I set up and managed MGRM's merchandise
+                        stand, spoke to visitors and tourists about the organisation's work, distributed flyers, and
+                        gave an interview to KNZ about Malta's queer legislation. On the second day I helped carry
+                        MGRM's banner at the front of the Pride March.</p>
+                </div>
+            </div>
+            <div class="event-item fade-up">
+                <div class="event-meta">
+                    <p class="event-date">11 Sep 2025</p>
+                    <p class="event-tag">Community Event</p>
+                </div>
+                <div class="event-content">
+                    <p class="event-title">Kwir Olimpiks</p>
+                    <p class="event-desc">A community sports day held at St Martin's College, Msida. I helped prepare
+                        the grounds, explained rules to participants, kept score across multiple games including a drag
+                        race and sack race, and assisted with the awards ceremony and clean-up.</p>
+                </div>
+            </div>
+            <div class="event-item fade-up">
+                <div class="event-meta">
+                    <p class="event-date">10 Sep 2025</p>
+                    <p class="event-tag">Fundraiser</p>
+                </div>
+                <div class="event-content">
+                    <p class="event-title">LOLgbtq — Pride Showcase &amp; Fundraiser</p>
+                    <p class="event-desc">A stand-up comedy and performance night held at Tigullio, St Julian's. I set
+                        up decorations, managed the merch stand, handled ambient and entrance music for each performer,
+                        and controlled audio levels during musical acts including a drag queen and burlesque performer.
+                    </p>
+                </div>
+            </div>
+            <div class="event-item fade-up">
+                <div class="event-meta">
+                    <p class="event-date">9 Sep 2025</p>
+                    <p class="event-tag">Panel Discussion</p>
+                </div>
+                <div class="event-content">
+                    <p class="event-title">I'm Coming Out! — Rethinking Inclusion in Queer Spaces</p>
+                    <p class="event-desc">A panel discussion held at The Meeting Place, Marsa. I helped set up the room
+                        and sound system, welcomed attendees, took photos throughout the event for social media, and
+                        assisted with the clean-up afterwards.</p>
+                </div>
+            </div>
+            <div class="event-item fade-up">
+                <div class="event-meta">
+                    <p class="event-date">12–13 Jul 2025</p>
+                    <p class="event-tag">Thrift Event</p>
+                </div>
+                <div class="event-content">
+                    <p class="event-title">Out of the Closet</p>
+                    <p class="event-desc">A two-day thrift event held at Ġnien l-Istazzjon, Attard. I helped set up
+                        signage, sort and hang donated clothing, manage sales and payments, assist customers, and pack
+                        up remaining items for charity at the end of the event.</p>
+                </div>
+            </div>
+        </div>
+        <div class="slideshow-section fade-up">
+            <p class="slideshow-label">Photos</p>
+            <div class="slideshow">
+                <div class="slideshow-track" id="slideshowTrack"></div>
+                <button class="slideshow-btn prev" onclick="moveSlide(-1)">&#8592;</button>
+                <button class="slideshow-btn next" onclick="moveSlide(1)">&#8594;</button>
+                <div class="slideshow-dots" id="slideshowDots"></div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <span class="footer-copy">&copy; 2025 Louie</span>
+        <span class="footer-copy">Film &amp; Costume &middot; Malta</span>
+    </footer>
+
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry, i) => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => entry.target.classList.add('visible'), i * 90);
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.08 });
+        document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+        const track = document.getElementById('slideshowTrack');
+        const dotsContainer = document.getElementById('slideshowDots');
+        let current = 0;
+        let total = 0;
+
+        function loadPhotos(index) {
+        const img = new Image();
+        img.src = `mgrm-photos/${index}.jpg`;
+        img.onload = () => {
+            img.alt = 'MGRM event photo';
+            track.appendChild(img);
+
+            const dot = document.createElement('button');
+            dot.classList.add('slideshow-dot');
+            if (index === 1) dot.classList.add('active');
+            dot.addEventListener('click', () => goToSlide(index - 1));
+            dotsContainer.appendChild(dot);
+
+            total++;
+            loadPhotos(index + 1);
+        };
+        img.onerror = () => {
+            // No more photos found, stop here
+        };
+        }
+
+        loadPhotos(1);
+
+        function goToSlide(n) {
+        current = n;
+        track.style.transform = `translateX(-${current * 100}%)`;
+        document.querySelectorAll('.slideshow-dot').forEach((d, i) => {
+            d.classList.toggle('active', i === current);
+        });
+        }
+
+        function moveSlide(dir) {
+        goToSlide((current + dir + total) % total);
+        }
+    </script>
+</body>
+
+</html>
